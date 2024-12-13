@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}about page{% endblock %}
+
+{% block content %}
+<center><h1>List of Electronics</h1></center>
+<div class="row">
+{% for product in products %}
+    {% if product.category=='electronics' %}
+        <div class="card" style="width: 18rem;">
+            {% if product.id%2 ==0 %}
+            <img src="https://dtlive.s3.ap-south-1.amazonaws.com/16354/Electronic-Animated-GIF-Icon-Pack-by-Discover-Template.gif" class="card-img-top" alt="...">
+            {% else %}
+            <img src="https://dtlive.s3.ap-south-1.amazonaws.com/16149/Electronic-and-Household-Device-Animated-GIF-Icon-pack-by-Discover-Template.gif" class="card-img-top" alt="...">
+            {% endif%}
+          <div class="card-body">
+            <h3 class="card-title">{{ product.name }}</h3>
+<!--            <p class="card-text">{{ product.desc }}</p>-->
+            <p class="card-text">Price: RS.{{ product.price }}</p>
+            <p class="card-text">Stock: {{ product.stock }}</p>
+
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <button type="submit" class="btn btn-primary" onclick="alert('Item Added successfully to cart')">Add to Cart</button>
+            </form>
+            <form action="/add_to_wishlist" method="post">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit" class="btn btn-warning" onclick="alert('Item Added successfully to wishlist')">Add to wishlist</button>
+            </form>
+          </div>
+        </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+

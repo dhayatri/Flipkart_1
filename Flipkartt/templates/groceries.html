@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Groceries | page{% endblock %}
+
+{% block content %}
+<center><h1>List of Groceries</h1></center>
+<div class="row">
+{% for product in products %}
+    {% if product.category=='groceries'%}
+        <div class="card" style="width: 18rem;">
+            {% if product.id%2 ==0 %}
+            <img src="https://cdn-icons-gif.flaticon.com/15547/15547201.gif" class="card-img-top" alt="...">
+            {% else %}
+            <img src="https://cdn-icons-gif.flaticon.com/11188/11188750.gif" class="card-img-top" alt="...">
+            {% endif%}
+            <div class="card-body">
+            <h3 class="card-title">{{ product.name }}</h3>
+<!--            <p class="card-text">{{ product.desc }}</p>-->
+            <p class="card-text">Price: RS.{{ product.price }}</p>
+            <p class="card-text">Stock: {{ product.stock }}</p>
+              <div class="row">
+                  <div class="col-auto">
+                    <form action="/add_to_cart" method="post">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                            <button type="submit" class="btn btn-primary" onclick="alert('Item Added successfully to cart')">Add to Cart</button>
+                    </form>
+                  </div>
+                  <div class="col-auto">
+                    <form action="/add_to_wishlist" method="post">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" class="btn btn-warning" onclick="alert('Item Added successfully to wishlist')">Add to wishlist</button>
+                    </form>
+                  </div>
+              </div>
+          </div>
+        </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}add block page{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="/submit">
+    <!-- Author Information -->
+    <label for="product_name" class="form-label">Product Name:</label>
+    <input type="text" id="product_name" name="product_name" required><br>
+
+    <label for="price">Price:</label>
+    <input type="text`" id="price" name="price" required><br>
+
+    <label for="description">description:</label>
+    <input type="text" id="description" name="description" required><br>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required><br>
+
+    <!-- Blog Information -->
+    <label for="size">Size:</label>
+    <input type="text" id="size" name="size"><br>
+
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

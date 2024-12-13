@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}about page{% endblock %}
+
+{% block content %}
+<center><h1>List of Home and Furnitures</h1></center>
+<div class="row">
+{% for product in products %}
+    {% if product.category=='home_furnitures' %}
+        <div class="card" style="width: 18rem;">
+            {% if product.id%2 ==0 %}
+            <img src="https://media.lordicon.com/icons/wired/lineal/1616-furniture.gif" class="card-img-top" alt="...">
+            {% else %}
+            <img src="https://media1.giphy.com/media/3o7TKV83tAyV2Bwty0/200w.gif?cid=6c09b952noqq3lr0ao1bdif7ac774jhmw8eee9zr9n3ht26v&ep=v1_gifs_search&rid=200w.gif&ct=g" class="card-img-top" alt="...">
+            {% endif%}
+          <div class="card-body">
+            <h3 class="card-title">{{ product.name }}</h3>
+<!--            <p class="card-text">{{ product.desc }}</p>-->
+            <p class="card-text">Price: RS.{{ product.price }}</p>
+            <p class="card-text">Stock: {{ product.stock }}</p>
+
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <button type="submit" class="btn btn-primary" onclick="alert('Item Added successfully to cart')">Add to Cart</button>
+            </form>
+            <form action="/add_to_wishlist" method="post">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit" class="btn btn-warning" onclick="alert('Item Added successfully to wishlist')">Add to wishlist</button>
+            </form>
+          </div>
+        </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+

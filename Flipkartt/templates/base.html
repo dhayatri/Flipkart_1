@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="/">
+                    <div class="logo"></div>
+                </a>
+            </div>
+            <div class="nav-search">
+                <input placeholder="Search for products,brands and more" class="search-input">
+                <div class="search-icon">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <a type="button" class="btn btn-light" href="/cart">Cart</a>
+            <div class="cart"></div>
+             <a type="button" class="btn btn-light" href="/wishlist">Wishlists</a>
+            <div class="cart"></div>
+             <a type="button" class="btn btn-light" href="/add-product">Add Product</a>
+
+
+
+        </div>
+        <div class="shop-sec">
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/grocery.webp')"></div>
+                    <a href='/groceries' class="grocery-button">Grocery</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/mobiles.webp')"></div>
+                    <a href='/mobiles' class="mobile-button">Mobile</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/fashion.webp')"></div>
+                    <a href='/fashions' class="fashion-button">Fashion</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/home.webp')"></div>
+                    <a href='/home-furniture' class="home-button">Home & Furniture</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/electronics.webp')"></div>
+                    <a href='/electronics' class="electronic-button">Electronics</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <div class="box_image" style="background-image: url('../static/images/appliances.webp')"></div>
+                    <a href='/appliences' class="appliances-button">Appliances</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        {% block content %} {% endblock %}
+        <footer>
+            <div class="footpanel1">
+                <ul>
+                    <p>ABOUT</p>
+                    <a href="contact-us.html" class="contact-button">Contact-Us</a>
+                    <a href="about-us.html" class="about-button">About-Us</a>
+                    <a href="careers.html" class="careers-button">Careers</a>
+                    <a href="press.html" class="press-button">Press</a>
+                    <a href="wholesale.html" class="wholesale-button">wholesale</a>
+                    <a href="corporate.html" class="corporate-button">Corporate</a>
+                </ul>
+                <ul>
+                    <a href="help.html" class="help-button">Help</a>
+                    <a href="payment.html" class="payment-button">Payment</a>
+                    <a href="shipping.html" class="shipping-button">Shipping</a>
+                    <a href="c&r.html" class="cancel or return-button">cancle or return</a>
+                    <a href="faq.html" class="faq-button">FAQ</a>
+                    <a href="report.html" class="report-button">Report Infregement</a>
+                </ul>
+                <ul>
+                    <a href="consumerpolicy.html" class="consumerepolicy-button">Consumere Policy</a>
+                    <a href="return.html" class="return-button">Return</a>
+                    <a href="termsofuses.html" class="termsofuses-button">Terms of Uses</a>
+                    <a href="security.html" class="security-button">Security</a>
+                    <a href="privacy.html" class="privacy-button">Privacy</a>
+                    <a href="epr.html" class="epr-button">EPR</a>
+                </ul>
+                <ul>
+                    <p>SOCIAL</p>
+                    <a href="facebook.html" class="facebook-button">Facebook</a>
+                    <a href="twitter.html" class="twitter-button">Twitter</a>
+                    <a href="utube.html" class="utube-button">Youtube</a>
+                </ul>
+                <ul class="address">
+                    <p id="head">Mail Us:</p>
+                    <p>Flipkart Internet Private Limited,</p>
+                    <p>Clove Embassy Tech Village,</p>
+                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                    <p>Bengaluru, 560103,</p>
+                </ul>
+                <ul class="adress2">
+                    <p id="head">Registered Office Address:</p>
+                    <p> Flipkart Internet Private Limited,</p>
+                    <p>Clove Embassy Tech Village,</p>
+                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                    <p>Bengaluru, 560103,</p>
+                </ul>
+            </div>
+        </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

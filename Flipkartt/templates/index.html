@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}index page{% endblock %}
+
+{% block content %}
+<center><h1>List of All Products</h1></center>
+<div class="row">
+{% for product in products %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h3 class="card-title">{{ product.name }}</h3>
+<!--        <p class="card-text">{{ product.desc }}</p>-->
+        <p class="card-text">Price: RS.{{ product.price }}</p>
+        <p class="card-text">Stock: {{ product.stock }}</p>
+
+        <form action="/add_to_cart" method="post">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit" class="btn btn-primary" onclick="alert('Item Added successfully to cart')">Add to Cart</button>
+        </form>
+        <form action="/add_to_wishlist" method="post">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit" class="btn btn-warning" onclick="alert('Item Added successfully to wishlist')">Add to wishlist</button>
+        </form>
+      </div>
+    </div>
+{% endfor %}
+{% endblock %}

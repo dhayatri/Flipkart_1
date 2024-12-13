@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}about page{% endblock %}
+
+{% block content %}
+<h3>Cart Items</h3>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Checkout Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingPassword" placeholder="mobile">
+          <label for="floatingPassword">Mobile</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a add your address here" id="floatingTextarea2" style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Address</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success"  onclick="alert('Your Order is successfully placed !!!')">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in cart %}
+  <tr>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.product.price }}</td>
+      <td>{{ item.quantity }}</td>
+      <td><button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
